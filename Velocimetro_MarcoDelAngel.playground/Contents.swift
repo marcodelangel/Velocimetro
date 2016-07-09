@@ -81,7 +81,7 @@ class Auto {
         case Velocidades.VelocidadAlta:
             return ("Velocidad Alta", Velocidades.VelocidadAlta.rawValue)
         }
-        
+
     }
     
 }
@@ -98,7 +98,7 @@ var carro = Auto()
 print("The default speed is \(carro.velocidad)")
 
 for var n in 1...20 {
-    carro.cambioDeVelocidad()
-    print(carro.velocidad, carro.velocidad.rawValue)
+    var nvaVelocidad = carro.cambioDeVelocidad()
+    print (nvaVelocidad.nuevaVelocidadEnString, nvaVelocidad.nuevaVelocidadEnNumero)
     n+=1
 }
