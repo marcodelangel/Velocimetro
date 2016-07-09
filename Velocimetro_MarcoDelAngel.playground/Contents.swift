@@ -61,24 +61,18 @@ class Auto {
     
     func cambioDeVelocidad ( ) -> (nuevaVelocidadEnString : String, nuevaVelocidadEnNumero :  Int){
         
-        if velocidad.rawValue == 0 {
-            velocidad = Velocidades.VelocidadBaja
-        } else if velocidad.rawValue == 20 {
-            velocidad = Velocidades.VelocidadMedia
-        } else if velocidad.rawValue == 50 {
-            velocidad = Velocidades.VelocidadAlta
-        } else if velocidad.rawValue == 120 {
-            velocidad = Velocidades.VelocidadMedia
-        }
-        
         switch velocidad {
-        case Velocidades.Apagado:
+        case .Apagado:
+            velocidad = .VelocidadBaja
             return ("Apagado", Velocidades.Apagado.rawValue)
-        case Velocidades.VelocidadBaja:
+        case .VelocidadBaja:
+            velocidad = .VelocidadMedia
             return ("Velocidad Baja", Velocidades.VelocidadBaja.rawValue)
-        case Velocidades.VelocidadMedia:
+        case .VelocidadMedia:
+            velocidad = .VelocidadAlta
             return ("Velocidad Media", Velocidades.VelocidadMedia.rawValue)
-        case Velocidades.VelocidadAlta:
+        case .VelocidadAlta:
+            velocidad = .VelocidadMedia
             return ("Velocidad Alta", Velocidades.VelocidadAlta.rawValue)
         }
 
@@ -100,5 +94,4 @@ print("The default speed is \(carro.velocidad)")
 for var n in 1...20 {
     var nvaVelocidad = carro.cambioDeVelocidad()
     print (nvaVelocidad.nuevaVelocidadEnString, nvaVelocidad.nuevaVelocidadEnNumero)
-    n+=1
 }
